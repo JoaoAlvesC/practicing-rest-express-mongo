@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,5 +17,12 @@
   "bugs": {
     "url": "https://github.com/JoaoAlvesC/rest-express-mongo-alura/issues"
   },
-  "homepage": "https://github.com/JoaoAlvesC/rest-express-mongo-alura#readme"
+  "homepage": "https://github.com/JoaoAlvesC/rest-express-mongo-alura#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "express": "^4.17.3",
+    "mongoose": "^6.2.6"
+  }
 }
