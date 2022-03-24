@@ -13,4 +13,4 @@ const autorSchema = new mongoose.Schema(
 
 const autores = mongoose.model("autores", autorSchema)
 
-export default autores
+export default autores;

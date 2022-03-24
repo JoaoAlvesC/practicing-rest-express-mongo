@@ -13,9 +13,9 @@ class LivroController {
 
         livros.findById(id, (err, livro) => {
             if(!err){
-                res.status(200).send(livro)
+                res.status(200).send(livro);
             }else{
-                res.status(400).send({message: err.message})
+                res.status(400).send({message: err.message});
             }
         })
     }
@@ -38,7 +38,7 @@ class LivroController {
             if(!err){
                 res.status(200).send({message: "Livro atualizado com sucesso"});
             }else{
-                res.status(500).send({message: err.message})
+                res.status(500).send({message: err.message});
             }
         })
     }
