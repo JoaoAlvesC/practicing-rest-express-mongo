@@ -3,15 +3,19 @@ import livros from "../models/Livro.js";
 class LivroController {
 
     static listarLivros = (req, res) => {
-        livros.find((err, result) => {
-            res.status(200).json(result);
-        })
+        livros.find()
+            .populate('autor')
+            .exec((err, result) => {
+                res.status(200).json(result);
+            })
     }
 
     static listarLivroPorId = (req, res) => {
         const id = req.params.id;
 
-        livros.findById(id, (err, livro) => {
+        livros.findById(id)
+            .populate('autor', 'nome')
+            .exec((err, livro) => {
             if(!err){
                 res.status(200).send(livro);
             }else{
@@ -52,6 +56,16 @@ class LivroController {
             }else{
                 res.status(500).send({message: err.message})
             }
+        })
+    }
+
+    static listarLivroPorEditora = (req, res) => {
+        const editora = req.query.editora
+
+        livros.find({"editora": editora}, {})
+            .populate('autor', 'nome')
+            .exec((err, livros) => {
+            res.status(200).send(livros)
         })
     }
 
